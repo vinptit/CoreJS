@@ -131,7 +131,7 @@ namespace TMS.API.Controllers
         {
             try
             {
-                var connectionStr = Startup.GetConnectionString(_serviceProvider, _config, "fastweb");
+                var connectionStr = Startup.GetConnectionString(_serviceProvider, _config, "acc");
                 using (var con = new SqlConnection(connectionStr))
                 {
                     var sqlCmd = new SqlCommand(sql.ToString(), con)
@@ -194,7 +194,7 @@ namespace TMS.API.Controllers
             }
             if (!FieldName.IsNullOrWhiteSpace())
             {
-                var connectionStr = Startup.GetConnectionString(_serviceProvider, _config, "fastweb");
+                var connectionStr = Startup.GetConnectionString(_serviceProvider, _config, "acc");
                 using var con = new SqlConnection(connectionStr);
                 var sqlCmd = new SqlCommand(GetByIds(ids, FieldName, DatabaseName), con)
                 {
@@ -319,7 +319,7 @@ namespace TMS.API.Controllers
         {
             var id = patch.Changes.FirstOrDefault(x => x.Field == Utils.IdField)?.Value;
             var idInt = id.TryParseInt() ?? 0;
-            using (SqlConnection connection = new SqlConnection(Startup.GetConnectionString(_serviceProvider, _config, "fastweb")))
+            using (SqlConnection connection = new SqlConnection(Startup.GetConnectionString(_serviceProvider, _config, "acc")))
             {
                 connection.Open();
                 SqlTransaction transaction = connection.BeginTransaction();
@@ -759,9 +759,9 @@ namespace TMS.API.Controllers
 
         [HttpPost("/api/[Controller]/ReportDataSet")]
         public async Task<IEnumerable<IEnumerable<Dictionary<string, object>>>> ReportDataSet(
-            [FromBody] string reportQuery, [FromQuery] string sys = "Fast")
+            [FromBody] string reportQuery, [FromQuery] string sys = "acc")
         {
-            var connectionStr = _config.GetConnectionString("FastTruongnam");
+            var connectionStr = _config.GetConnectionString("acc");
             using var con = new SqlConnection(connectionStr);
             var sqlCmd = new SqlCommand(reportQuery, con)
             {
@@ -797,7 +797,7 @@ namespace TMS.API.Controllers
         {
             if (sys.IsNullOrEmpty())
             {
-                sys = "fastweb";
+                sys = "acc";
             }
             var connectionStr = Startup.GetConnectionString(_serviceProvider, _config, sys);
             using var con = new SqlConnection(connectionStr);
@@ -826,7 +826,7 @@ namespace TMS.API.Controllers
             [FromQuery] string group, [FromQuery] string tablename, [FromQuery] string refname,
             [FromQuery] string formatsumary, [FromQuery] string orderby, [FromQuery] string sql, [FromQuery] string where, [FromQuery] string join)
         {
-            var connectionStr = Startup.GetConnectionString(_serviceProvider, _config, "fastweb");
+            var connectionStr = Startup.GetConnectionString(_serviceProvider, _config, "acc");
             using var con = new SqlConnection(connectionStr);
             var reportQuery = string.Empty;
             group = group.Contains(".") ? $"{group}" : $"[{tablename}].{group}";
@@ -895,7 +895,7 @@ namespace TMS.API.Controllers
             [FromQuery] string where,
             [FromQuery] string join)
         {
-            var connectionStr = Startup.GetConnectionString(_serviceProvider, _config, "fastweb");
+            var connectionStr = Startup.GetConnectionString(_serviceProvider, _config, "acc");
             using var con = new SqlConnection(connectionStr);
             var reportQuery = string.Empty;
             var showNullString = showNull ? $"" : string.Empty;

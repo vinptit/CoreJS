@@ -67,7 +67,7 @@ namespace TMS.API.Controllers
             await InheritParentPolicy(entity);
             var serviceProvider = _httpContext.HttpContext.RequestServices.GetService(typeof(IServiceProvider)) as IServiceProvider;
             var configuration = _httpContext.HttpContext.RequestServices.GetService(typeof(IConfiguration)) as IConfiguration;
-            var connectionString = Startup.GetConnectionString(serviceProvider, configuration, "fastweb");
+            var connectionString = Startup.GetConnectionString(serviceProvider, configuration, "acc");
 
             // Create a SqlConnection using the connection string
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -169,7 +169,7 @@ namespace TMS.API.Controllers
         }
 
         [HttpPost("api/[Controller]/CopyFromTo")]
-        public async Task<ActionResult<bool>> CopyFromTo([FromBody] int? id, [FromQuery] string te, [FromQuery] string system = "fastweb", [FromQuery] string key = "tms_core")
+        public async Task<ActionResult<bool>> CopyFromTo([FromBody] int? id, [FromQuery] string te, [FromQuery] string system = "acc", [FromQuery] string key = "tms_core")
         {
             if (id == null)
             {

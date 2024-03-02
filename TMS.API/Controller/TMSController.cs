@@ -150,8 +150,8 @@ namespace TMS.API.Controllers
         {
             var serviceProvider = _httpContext.HttpContext.RequestServices.GetService(typeof(IServiceProvider)) as IServiceProvider;
             var configuration = _httpContext.HttpContext.RequestServices.GetService(typeof(IConfiguration)) as IConfiguration;
-            var connStr = Startup.GetConnectionString(serviceProvider, configuration, "fastweb");
-            var db = Startup.GetConnectionString(serviceProvider, configuration, "fastweb");
+            var connStr = Startup.GetConnectionString(serviceProvider, configuration, "acc");
+            var db = Startup.GetConnectionString(serviceProvider, configuration, "acc");
             var thead = new Thread(() =>
             {
             });
@@ -747,7 +747,7 @@ namespace TMS.API.Controllers
                 }
             }
             var s = $"";
-            var connectionStr = Startup.GetConnectionString(_serviceProvider, _config, "fastweb");
+            var connectionStr = Startup.GetConnectionString(_serviceProvider, _config, "acc");
             using var con = new SqlConnection(connectionStr);
             var sqlCmd = new SqlCommand(reportQuery, con)
             {

@@ -13,8 +13,6 @@ using System.IO.Compression;
 using System.Security.Claims;
 using System.Text;
 using TMS.API.Extensions;
-using TMS.API.FastKiowayModels;
-using TMS.API.FastTruongNamModels;
 using TMS.API.Models;
 using TMS.API.Services;
 using TMS.API.Websocket;
@@ -82,24 +80,7 @@ namespace TMS.API
             }, ServiceLifetime.Scoped);
             services.AddDbContext<TMSContext>((serviceProvider, options) =>
             {
-                string connectionStr = GetConnectionString(serviceProvider, _configuration, "fastweb");
-                options.UseSqlServer(connectionStr);
-#if DEBUG
-                options.EnableSensitiveDataLogging();
-#endif
-            }, ServiceLifetime.Scoped);
-            services.AddDbContext<FastTruongNamContext>((serviceProvider, options) =>
-            {
-                string connectionStr = GetConnectionString(serviceProvider, _configuration, "FastTruongnam");
-                options.UseSqlServer(connectionStr);
-#if DEBUG
-                options.EnableSensitiveDataLogging();
-#endif
-            }, ServiceLifetime.Scoped);
-
-            services.AddDbContext<FastKiowayContext>((serviceProvider, options) =>
-            {
-                string connectionStr = GetConnectionString(serviceProvider, _configuration, "FastKioway");
+                string connectionStr = GetConnectionString(serviceProvider, _configuration, "Acc");
                 options.UseSqlServer(connectionStr);
 #if DEBUG
                 options.EnableSensitiveDataLogging();
@@ -146,7 +127,7 @@ namespace TMS.API
                 ?? _configuration.GetConnectionString(system);
             if (!tenantCode.IsNullOrWhiteSpace())
             {
-                connectionStr = connectionStr.Replace($"{system}_dev", $"{system}_{tenantCode ?? "dev"}");
+                connectionStr = connectionStr.Replace($"{system}_Yeni", $"{system}_{tenantCode ?? "Yeni"}");
             }
             return connectionStr;
         }
@@ -161,22 +142,9 @@ namespace TMS.API
             if (subVendor)
             {
                 var connStr = JsonConvert.DeserializeObject<List<VendorConnStrVM>>(conStr);
-                vendorConnStr = connStr.FirstOrDefault(x => x.Name == "fastweb").ConStr;
+                vendorConnStr = connStr.FirstOrDefault(x => x.Name == "Acc").ConStr;
             }
             var builder = new DbContextOptionsBuilder<TMSContext>().UseSqlServer(vendorConnStr).Options;
-            var context = new TMSContext(builder);
-            return context;
-        }
-
-        public static TMSContext GetFastContext(string conStr, string system = "Fast")
-        {
-            if (conStr.IsNullOrWhiteSpace())
-            {
-                return null;
-            }           
-            var connStr = JsonConvert.DeserializeObject<List<VendorConnStrVM>>(conStr);
-            var vendorConnStr = connStr.FirstOrDefault(x => x.Name == system);
-            var builder = new DbContextOptionsBuilder<TMSContext>().UseSqlServer(vendorConnStr.ConStr).Options;
             var context = new TMSContext(builder);
             return context;
         }

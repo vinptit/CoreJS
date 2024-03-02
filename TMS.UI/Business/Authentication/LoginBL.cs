@@ -41,7 +41,7 @@ namespace TMS.UI.Business.Authentication
         {
             Entity = new LoginVM()
             {
-                CompanyName = LocalStorage.GetItem<string>("Tanent") ?? "Softek",
+                CompanyName = LocalStorage.GetItem<string>("Tanent") ?? "Yeni",
                 AutoSignIn = true
             };
             Name = "Login";
