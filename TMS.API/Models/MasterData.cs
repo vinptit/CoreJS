@@ -8,6 +8,7 @@ namespace TMS.API.Models
         public MasterData()
         {
             InverseParent = new HashSet<MasterData>();
+            VendorService = new HashSet<VendorService>();
         }
 
         public int Id { get; set; }
@@ -36,5 +37,6 @@ namespace TMS.API.Models
 
         public virtual MasterData Parent { get; set; }
         public virtual ICollection<MasterData> InverseParent { get; set; }
+        public virtual ICollection<VendorService> VendorService { get; set; }
     }
 }

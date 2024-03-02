@@ -8,6 +8,7 @@ namespace TMS.API.Models
         public Vendor()
         {
             User = new HashSet<User>();
+            VendorService = new HashSet<VendorService>();
         }
 
         public int Id { get; set; }
@@ -65,5 +66,6 @@ namespace TMS.API.Models
 
         public virtual User UserNavigation { get; set; }
         public virtual ICollection<User> User { get; set; }
+        public virtual ICollection<VendorService> VendorService { get; set; }
     }
 }

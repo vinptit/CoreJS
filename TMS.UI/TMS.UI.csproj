@@ -142,9 +142,6 @@
     <Compile Include="..\TMS.API\Models\HBL.cs">
       <Link>Models\HBL.cs</Link>
     </Compile>
-    <Compile Include="..\TMS.API\Models\History.cs">
-      <Link>Models\History.cs</Link>
-    </Compile>
     <Compile Include="..\TMS.API\Models\HouseBill.cs">
       <Link>Models\HouseBill.cs</Link>
     </Compile>
@@ -271,6 +268,7 @@
     <Compile Include="..\TMS.API\ViewModels\ReportVM.cs">
       <Link>ViewModels\ReportVM.cs</Link>
     </Compile>
+    <Compile Include="Business\Accountant\ContractBL.cs" />
     <Compile Include="Business\ImportCharge\ImportChargeBL.cs" />
     <Compile Include="Business\Sale\CustomerCareDetailBL.cs" />
     <Compile Include="Business\Sale\CustomerCareBL.cs" />
@@ -347,7 +345,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Business\Accountant\" />
     <Folder Include="Business\Manage\" />
   </ItemGroup>
   <ItemGroup>

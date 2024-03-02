@@ -71,7 +71,7 @@ namespace TMS.API
                 options.EnableSensitiveDataLogging();
 #endif
             }, ServiceLifetime.Scoped);
-            services.AddDbContext<LOGContext>((serviceProvider, options) =>
+            services.AddDbContext<LogContext>((serviceProvider, options) =>
             {
                 options.UseSqlServer(_configuration.GetConnectionString($"LOG"));
 #if DEBUG

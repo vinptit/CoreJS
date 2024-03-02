@@ -6,8 +6,8 @@ namespace TMS.API.Controllers
 {
     public class RequestLogController : GenericController<RequestLog>
     {
-        private readonly LOGContext db;
-        public RequestLogController(LOGContext context, EntityService entityService, IHttpContextAccessor httpContextAccessor) : base(context, entityService, httpContextAccessor)
+        private readonly LogContext db;
+        public RequestLogController(LogContext context, EntityService entityService, IHttpContextAccessor httpContextAccessor) : base(context, entityService, httpContextAccessor)
         {
             db = context;
         }

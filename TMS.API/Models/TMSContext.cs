@@ -29,8 +29,6 @@ namespace TMS.API.Models
         public virtual DbSet<FeaturePolicy> FeaturePolicy { get; set; }
         public virtual DbSet<FileUpload> FileUpload { get; set; }
         public virtual DbSet<GridPolicy> GridPolicy { get; set; }
-        public virtual DbSet<ImportExcel> ImportExcel { get; set; }
-        public virtual DbSet<ImportExcelResult> ImportExcelResult { get; set; }
         public virtual DbSet<Intro> Intro { get; set; }
         public virtual DbSet<MasterData> MasterData { get; set; }
         public virtual DbSet<RequestLog> RequestLog { get; set; }
@@ -42,6 +40,7 @@ namespace TMS.API.Models
         public virtual DbSet<UserRole> UserRole { get; set; }
         public virtual DbSet<UserSetting> UserSetting { get; set; }
         public virtual DbSet<Vendor> Vendor { get; set; }
+        public virtual DbSet<VendorService> VendorService { get; set; }
         public virtual DbSet<Webhook> Webhook { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -84,7 +83,7 @@ namespace TMS.API.Models
 
                 entity.Property(e => e.ComponentType)
                     .IsRequired()
-                    .HasMaxLength(50)
+                    .HasMaxLength(200)
                     .IsUnicode(false);
 
                 entity.Property(e => e.DateTimeField)
@@ -176,7 +175,7 @@ namespace TMS.API.Models
                 entity.Property(e => e.VirtualScroll).HasDefaultValueSql("((0))");
 
                 entity.Property(e => e.Width)
-                    .HasMaxLength(20)
+                    .HasMaxLength(200)
                     .IsUnicode(false);
 
                 entity.HasOne(d => d.ComponentGroup)
@@ -509,43 +508,6 @@ namespace TMS.API.Models
                     .HasConstraintName("FK_GridPolicy_RefEntity");
             });
 
-            modelBuilder.Entity<ImportExcelResult>(entity =>
-            {
-                entity.Property(e => e.Currency).HasMaxLength(200);
-
-                entity.Property(e => e.Docs).HasMaxLength(50);
-
-                entity.Property(e => e.ExtRate).HasMaxLength(200);
-
-                entity.Property(e => e.FeeCode).HasMaxLength(200);
-
-                entity.Property(e => e.HBL)
-                    .IsRequired()
-                    .HasMaxLength(200);
-
-                entity.Property(e => e.Job)
-                    .IsRequired()
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.OBHPartnerID).HasMaxLength(200);
-
-                entity.Property(e => e.PartnerID).HasMaxLength(200);
-
-                entity.Property(e => e.Quantity).HasMaxLength(200);
-
-                entity.Property(e => e.StatusFeeText).HasMaxLength(200);
-
-                entity.Property(e => e.TYPE).HasMaxLength(200);
-
-                entity.Property(e => e.Total).HasColumnType("decimal(18, 2)");
-
-                entity.Property(e => e.Unit).HasMaxLength(200);
-
-                entity.Property(e => e.UnitPrice).HasMaxLength(200);
-
-                entity.Property(e => e.VAT).HasMaxLength(200);
-            });
-
             modelBuilder.Entity<Intro>(entity =>
             {
                 entity.Property(e => e.FieldName).HasMaxLength(250);
@@ -773,6 +735,19 @@ namespace TMS.API.Models
                     .WithMany(p => p.VendorNavigation)
                     .HasForeignKey(d => d.UserId)
                     .HasConstraintName("FK_Vendor_User");
+            });
+
+            modelBuilder.Entity<VendorService>(entity =>
+            {
+                entity.HasOne(d => d.Service)
+                    .WithMany(p => p.VendorService)
+                    .HasForeignKey(d => d.ServiceId)
+                    .HasConstraintName("FK_VendorService_MasterData");
+
+                entity.HasOne(d => d.Vendor)
+                    .WithMany(p => p.VendorService)
+                    .HasForeignKey(d => d.VendorId)
+                    .HasConstraintName("FK_VendorService_Vendor");
             });
 
             modelBuilder.Entity<Webhook>(entity =>

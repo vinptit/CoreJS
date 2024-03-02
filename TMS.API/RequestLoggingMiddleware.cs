@@ -26,7 +26,7 @@ namespace TMS.API
             {
                 using (var scope = _serviceScopeFactory.CreateScope())
                 {
-                    var _context = scope.ServiceProvider.GetRequiredService<LOGContext>();
+                    var _context = scope.ServiceProvider.GetRequiredService<LogContext>();
                     string token = request.Headers.Authorization.FirstOrDefault().Replace("Bearer ", "");
                     var tokenHandler = new JwtSecurityTokenHandler();
                     var jwtToken = tokenHandler.ReadJwtToken(token);

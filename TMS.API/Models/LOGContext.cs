@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace TMS.API.Models
 {
-    public partial class LOGContext : DbContext
+    public partial class LogContext : DbContext
     {
-        public LOGContext()
+        public LogContext()
         {
         }
 
-        public LOGContext(DbContextOptions<LOGContext> options)
+        public LogContext(DbContextOptions<LogContext> options)
             : base(options)
         {
         }

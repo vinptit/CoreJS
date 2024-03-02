@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace TMS.API.Models
 {
-    public partial class History
+    public partial class ACC_History
     {
         public long Id { get; set; }
         public string TanentCode { get; set; }

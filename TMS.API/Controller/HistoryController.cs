@@ -5,7 +5,7 @@ using TMS.API.Models;
 
 namespace TMS.API.Controllers
 {
-    public class HistoryController : GenericController<History>
+    public class HistoryController : GenericController<ACC_History>
     {
         private readonly HistoryContext db;
         public HistoryController(HistoryContext context, EntityService entityService, IHttpContextAccessor httpContextAccessor) : base(context, entityService, httpContextAccessor)
@@ -13,13 +13,13 @@ namespace TMS.API.Controllers
             db = context;
         }
 
-        public override Task<OdataResult<History>> Get(ODataQueryOptions<History> options)
+        public override Task<OdataResult<ACC_History>> Get(ODataQueryOptions<ACC_History> options)
         {
-            var query = db.FAST_History.AsQueryable();
+            var query = db.ACC_History.AsQueryable();
             return ApplyQuery(options, query);
         }
 
-        public override Task<ActionResult<History>> CreateAsync([FromBody] History entity)
+        public override Task<ActionResult<ACC_History>> CreateAsync([FromBody] ACC_History entity)
         {
             entity.TanentCode = _userSvc.VendorId.ToString();
             return base.CreateAsync(entity);
