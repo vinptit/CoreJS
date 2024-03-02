@@ -21,6 +21,7 @@ namespace TMS.API.Models
         public virtual DbSet<Chat> Chat { get; set; }
         public virtual DbSet<Component> Component { get; set; }
         public virtual DbSet<ComponentGroup> ComponentGroup { get; set; }
+        public virtual DbSet<Contract> Contract { get; set; }
         public virtual DbSet<Convertation> Convertation { get; set; }
         public virtual DbSet<Dictionary> Dictionary { get; set; }
         public virtual DbSet<Entity> Entity { get; set; }
@@ -234,6 +235,16 @@ namespace TMS.API.Models
                     .WithMany(p => p.InverseParent)
                     .HasForeignKey(d => d.ParentId)
                     .HasConstraintName("FK_ComponentGroup_ComponentGroup");
+            });
+
+            modelBuilder.Entity<Contract>(entity =>
+            {
+                entity.Property(e => e.Code).HasMaxLength(50);
+
+                entity.HasOne(d => d.Customer)
+                    .WithMany(p => p.Contract)
+                    .HasForeignKey(d => d.CustomerId)
+                    .HasConstraintName("FK_Contract_Vendor");
             });
 
             modelBuilder.Entity<Convertation>(entity =>

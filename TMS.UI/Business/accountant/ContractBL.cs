@@ -1,4 +1,4 @@
-using Bridge.Html5;
+﻿using Bridge.Html5;
 using Core.Clients;
 using Core.Components;
 using Core.Components.Extensions;
@@ -16,10 +16,35 @@ namespace TMS.UI.Business.Accountant
 {
     public class ContractBL : TabEditor
     {
-        public ContractBL() : base(nameof(Vendor))
+        public ContractBL() : base(nameof(Contract))
         {
             Name = "Contract List";
-
+        }
+        public async Task AddContract()
+        {
+            await this.OpenPopup(
+                featureName: "Contract Editor",
+                factory: () =>
+                {
+                    var type = Type.GetType("TMS.UI.Business.Accountant.ContractEditorBL");
+                    var instance = Activator.CreateInstance(type) as PopupEditor;
+                    instance.Title = "Thêm mới hợp đồng";
+                    instance.Entity = new Contract();
+                    return instance;
+                });
+        }
+        public async Task EditContract(Contract entity)
+        {
+            await this.OpenPopup(
+                featureName: "Contract Editor",
+                factory: () =>
+                {
+                    var type = Type.GetType("TMS.UI.Business.Accountant.ContractEditorBL");
+                    var instance = Activator.CreateInstance(type) as PopupEditor;
+                    instance.Title = $"Chỉnh sửa hợp đồng: {entity.Code}";
+                    instance.Entity = entity;
+                    return instance;
+                });
         }
     }
 }

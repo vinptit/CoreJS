@@ -109,6 +109,9 @@
     <Compile Include="..\TMS.API\Models\ContainerListOnHBL.cs">
       <Link>Models\ContainerListOnHBL.cs</Link>
     </Compile>
+    <Compile Include="..\TMS.API\Models\Contract.cs">
+      <Link>Models\Contract.cs</Link>
+    </Compile>
     <Compile Include="..\TMS.API\Models\Convertation.cs">
       <Link>Models\Convertation.cs</Link>
     </Compile>
@@ -269,6 +272,7 @@
       <Link>ViewModels\ReportVM.cs</Link>
     </Compile>
     <Compile Include="Business\Accountant\ContractBL.cs" />
+    <Compile Include="Business\Accountant\ContractEditorBL.cs" />
     <Compile Include="Business\ImportCharge\ImportChargeBL.cs" />
     <Compile Include="Business\Sale\CustomerCareDetailBL.cs" />
     <Compile Include="Business\Sale\CustomerCareBL.cs" />

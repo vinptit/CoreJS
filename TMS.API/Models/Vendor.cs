@@ -7,6 +7,7 @@ namespace TMS.API.Models
     {
         public Vendor()
         {
+            Contract = new HashSet<Contract>();
             User = new HashSet<User>();
             VendorService = new HashSet<VendorService>();
         }
@@ -65,6 +66,7 @@ namespace TMS.API.Models
         public string Notes { get; set; }
 
         public virtual User UserNavigation { get; set; }
+        public virtual ICollection<Contract> Contract { get; set; }
         public virtual ICollection<User> User { get; set; }
         public virtual ICollection<VendorService> VendorService { get; set; }
     }
