@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <NoStdLib>true</NoStdLib>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A00CE4F4-FF45-4128-9A20-147A62E0AAB0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TMS.UI</RootNamespace>
+    <AssemblyName>TMS.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Linux|AnyCPU'">
+    <OutputPath>bin\Linux\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugSQL|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\DebugSQL\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\TMS.API\Enums\ApprovalStatusEnum.cs">
+      <Link>Enums\ApprovalStatusEnum.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Enums\FreightStateEnum.cs">
+      <Link>Enums\FreightStateEnum.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Enums\HAWBTypeEnum.cs">
+      <Link>Enums\HAWBTypeEnum.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Enums\MasterDataType.cs">
+      <Link>Enums\MasterDataType.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Enums\TruckEnum.cs">
+      <Link>Enums\TruckEnum.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\AirPortPerKGSChargeable.cs">
+      <Link>Models\AirPortPerKGSChargeable.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\AirPorts.cs">
+      <Link>Models\AirPorts.cs</Link>
+    </Compile>
+    <Compile Include="..\tms.api\models\ApprovalConfig.cs">
+      <Link>Models\ApprovalConfig.cs</Link>
+    </Compile>
+    <Compile Include="..\tms.api\models\Approvement.cs">
+      <Link>Models\Approvement.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\AttachedFile.cs">
+      <Link>Models\AttachedFile.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\Bonus.cs">
+      <Link>Models\Bonus.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\Category.cs">
+      <Link>Models\Category.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\Chat.cs">
+      <Link>Models\Chat.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\Commodity.cs">
+      <Link>Models\Commodity.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\Component.cs">
+      <Link>Models\Component.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\ComponentGroup.cs">
+      <Link>Models\ComponentGroup.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\ConfigID.cs">
+      <Link>Models\ConfigID.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\ContainerHouseBill.cs">
+      <Link>Models\ContainerHouseBill.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\ContainerList.cs">
+      <Link>Models\ContainerList.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\ContainerListOnHBL.cs">
+      <Link>Models\ContainerListOnHBL.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\Convertation.cs">
+      <Link>Models\Convertation.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\CustomsDepartment.cs">
+      <Link>Models\CustomsDepartment.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\Departments.cs">
+      <Link>Models\Departments.cs</Link>
+    </Compile>
+    <Compile Include="..\tms.api\models\Entity.cs">
+      <Link>Models\Entity.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\EntityRef.cs">
+      <Link>Models\EntityRef.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\Feature.cs">
+      <Link>Models\Feature.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\FeaturePolicy.cs">
+      <Link>Models\FeaturePolicy.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\FileUpload.cs">
+      <Link>Models\FileUpload.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\Gate.cs">
+      <Link>Models\Gate.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\GridPolicy.cs">
+      <Link>Models\GridPolicy.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\HBL.cs">
+      <Link>Models\HBL.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\History.cs">
+      <Link>Models\History.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\HouseBill.cs">
+      <Link>Models\HouseBill.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\ImportExcel.cs">
+      <Link>Models\ImportExcel.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\ImportExcelResult.cs">
+      <Link>Models\ImportExcelResult.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\Leads.cs">
+      <Link>Models\Leads.cs</Link>
+    </Compile>
+    <Compile Include="..\tms.api\models\MasterData.cs">
+      <Link>Models\MasterData.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\National.cs">
+      <Link>Models\National.cs</Link>
+    </Compile>
+    <Compile Include="..\tms.api\models\OdataResult.cs">
+      <Link>Models\OdataResult.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\OtherSurcharge.cs">
+      <Link>Models\OtherSurcharge.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\PartialModel.cs">
+      <Link>Models\PartialModel.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\PartnerCategory.cs">
+      <Link>Models\PartnerCategory.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\Partners.cs">
+      <Link>Models\Partners.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\PartnersAttachedFiles.cs">
+      <Link>Models\PartnersAttachedFiles.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\PartnerShippingDetail.cs">
+      <Link>Models\PartnerShippingDetail.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\PartnersTransaction.cs">
+      <Link>Models\PartnersTransaction.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\PersonalContactPartners.cs">
+      <Link>Models\PersonalContactPartners.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\PersonalData.cs">
+      <Link>Models\PersonalData.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\Role.cs">
+      <Link>Models\Role.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\Route.cs">
+      <Link>Models\Route.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\RouteOnHBL.cs">
+      <Link>Models\RouteOnHBL.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\Supplier.cs">
+      <Link>Models\Supplier.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\SupplierService.cs">
+      <Link>Models\SupplierService.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\Surcharge.cs">
+      <Link>Models\Surcharge.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\SurchargeType.cs">
+      <Link>Models\SurchargeType.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\TaskList.cs">
+      <Link>Models\TaskList.cs</Link>
+    </Compile>
+    <Compile Include="..\tms.api\models\TaskNotification.cs">
+      <Link>Models\TaskNotification.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\Terminal.cs">
+      <Link>Models\Terminal.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\TerminalDelay.cs">
+      <Link>Models\TerminalDelay.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\TerminalType.cs">
+      <Link>Models\TerminalType.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\Transaction.cs">
+      <Link>Models\Transaction.cs</Link>
+    </Compile>
+    <Compile Include="..\tms.api\models\User.cs">
+      <Link>Models\User.cs</Link>
+    </Compile>
+    <Compile Include="..\tms.api\models\UserRole.cs">
+      <Link>Models\UserRole.cs</Link>
+    </Compile>
+    <Compile Include="..\tms.api\models\UserSetting.cs">
+      <Link>Models\UserSetting.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\VehicleList.cs">
+      <Link>Models\VehicleList.cs</Link>
+    </Compile>
+    <Compile Include="..\tms.api\models\Vendor.cs">
+      <Link>Models\Vendor.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\VendorService.cs">
+      <Link>Models\VendorService.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\Webhook.cs">
+      <Link>Models\Webhook.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\Models\YourCompany.cs">
+      <Link>Models\YourCompany.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\ViewModels\APIResponseVM.cs">
+      <Link>ViewModels\APIResponseVM.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\ViewModels\HAWBVM.cs">
+      <Link>ViewModels\HAWBVM.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\ViewModels\ImportChargeVM.cs">
+      <Link>ViewModels\ImportChargeVM.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\ViewModels\ImportExcelVM.cs">
+      <Link>Models\ImportExcelVM.cs</Link>
+    </Compile>
+    <Compile Include="..\TMS.API\ViewModels\ReportVM.cs">
+      <Link>ViewModels\ReportVM.cs</Link>
+    </Compile>
+    <Compile Include="Business\ImportCharge\ImportChargeBL.cs" />
+    <Compile Include="Business\Sale\CustomerCareDetailBL.cs" />
+    <Compile Include="Business\Sale\CustomerCareBL.cs" />
+    <Compile Include="Business\Settings\ApiException.cs" />
+    <Compile Include="Business\Setting\GridPolicyDetailBL.cs" />
+    <Compile Include="Business\Setting\ConfigIdBL.cs" />
+    <Compile Include="Business\Setting\SettingDataBL.cs" />
+    <Compile Include="Business\Shop\VendorEditorBL.cs" />
+    <Compile Include="Business\Shop\VendorBL.cs" />
+    <Compile Include="Business\Setting\SurchargeTypeBL.cs" />
+    <Compile Include="Business\User\RegistrationBL.cs" />
+    <Compile Include="Business\Authentication\LoginBL.cs" />
+    <Compile Include="Business\Authentication\PolicyEditorBL.cs" />
+    <Compile Include="Business\MenuComponent.cs" />
+    <Compile Include="App.cs" />
+    <Compile Include="Business\Authentication\PolicyManagementBL.cs" />
+    <Compile Include="Business\Setting\EntityDetailBL.cs" />
+    <Compile Include="Business\Setting\MasterDataBL.cs" />
+    <Compile Include="Business\Setting\MasterDataDetailsBL.cs" />
+    <Compile Include="Business\Setting\RoleDetailBL.cs" />
+    <Compile Include="Business\User\ApprovalConfigBL.cs" />
+    <Compile Include="Business\User\ChangePasswordBL.cs" />
+    <Compile Include="Business\User\UserBL.cs" />
+    <Compile Include="Business\User\UserDetailBL.cs" />
+    <Compile Include="Business\User\UserProfileBL.cs" />
+    <Compile Include="Business\User\TaskNotificationDetailBL.cs" />
+    <Compile Include="Business\User\UserSettingBL.cs" />
+    <Compile Include="Notifications\NotificationBL.cs" />
+    <Compile Include="Notifications\TaskNotificationListBL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bridge.json" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Bridge, Version=17.10.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bridge.Core.17.10.1\lib\net40\Bridge.dll</HintPath>
+    </Reference>
+    <Reference Include="Bridge.Html5, Version=17.10.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bridge.Html5.17.10.0\lib\net40\Bridge.Html5.dll</HintPath>
+    </Reference>
+    <Reference Include="Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FAST.CRUD.FE.1.0.4\lib\net48\Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=1.17.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bridge.Newtonsoft.Json.1.17.0\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Retyped.canvasjs, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Retyped.canvasjs.1.9.6733\lib\net40\Retyped.canvasjs.dll</HintPath>
+    </Reference>
+    <Reference Include="Retyped.Core, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Retyped.Core.1.6.6733\lib\net40\Retyped.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Retyped.dom, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Retyped.dom.2.8.6733\lib\net40\Retyped.dom.dll</HintPath>
+    </Reference>
+    <Reference Include="Retyped.es2015.core, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Retyped.es2015.core.2.8.6733\lib\net40\Retyped.es2015.core.dll</HintPath>
+    </Reference>
+    <Reference Include="Retyped.es2015.iterable, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Retyped.es2015.iterable.2.8.6733\lib\net40\Retyped.es2015.iterable.dll</HintPath>
+    </Reference>
+    <Reference Include="Retyped.es2015.symbol, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Retyped.es2015.symbol.2.8.6733\lib\net40\Retyped.es2015.symbol.dll</HintPath>
+    </Reference>
+    <Reference Include="Retyped.es5, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Retyped.es5.2.8.6733\lib\net40\Retyped.es5.dll</HintPath>
+    </Reference>
+    <Reference Include="Retyped.googlemaps, Version=3.30.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Retyped.googlemaps.3.30.6733\lib\net40\Retyped.googlemaps.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Business\Accountant\" />
+    <Folder Include="Business\Manage\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="..\packages\Bridge.Min.17.10.1\build\Bridge.Min.targets" Condition="Exists('..\packages\Bridge.Min.17.10.1\build\Bridge.Min.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Bridge.Min.17.10.1\build\Bridge.Min.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Bridge.Min.17.10.1\build\Bridge.Min.targets'))" />
+  </Target>
+</Project>

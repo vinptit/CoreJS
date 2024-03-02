@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace TMS.API.FastKiowayModels
+{
+    public partial class POListAttachedFiles
+    {
+        public string FieldKey { get; set; }
+        public string PONo { get; set; }
+        public string Description { get; set; }
+        public string FileName { get; set; }
+        public string FileExt { get; set; }
+        public byte[] FileContent { get; set; }
+        public DateTime? DateCreated { get; set; }
+        public DateTime? DateModify { get; set; }
+        public string UserEdit { get; set; }
+        public string UpdateHistory { get; set; }
+
+        public virtual POList PONoNavigation { get; set; }
+    }
+}
