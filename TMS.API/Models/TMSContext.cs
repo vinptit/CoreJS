@@ -241,6 +241,8 @@ namespace TMS.API.Models
             {
                 entity.Property(e => e.Code).HasMaxLength(50);
 
+                entity.Property(e => e.Note).HasMaxLength(500);
+
                 entity.HasOne(d => d.Customer)
                     .WithMany(p => p.Contract)
                     .HasForeignKey(d => d.CustomerId)

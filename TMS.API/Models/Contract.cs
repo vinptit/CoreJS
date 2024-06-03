@@ -16,6 +16,7 @@ namespace TMS.API.Models
         public int? Type { get; set; }
         public DateTime? ContractDate { get; set; }
         public int? Status { get; set; }
+        public string Note { get; set; }
 
         public virtual Vendor Customer { get; set; }
     }
